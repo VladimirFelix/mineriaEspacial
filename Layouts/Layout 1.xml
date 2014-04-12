@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
     <name>Layout 1</name>
-    <sid>810334101245512</sid>
+    <sid>9355394353364639</sid>
     <event-sheet>Event sheet 1</event-sheet>
     <size>
-        <width>1708</width>
-        <height>960</height>
+        <width>1200</width>
+        <height>1800</height>
     </size>
     <margins>
         <horizontal>500</horizontal>
@@ -13,7 +13,7 @@
     </margins>
     <unbounded-scrolling>0</unbounded-scrolling>
     <layers>
-        <layer name="background" sid="3248974118516861">
+        <layer name="Layer 0" sid="8617595898937132">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>0</transparent>
@@ -27,7 +27,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="TiledBackground" uid="0">
+                <instance type="BackgroundSpace" uid="0">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -35,11 +35,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-5</x>
-                        <y>2</y>
+                        <x>0</x>
+                        <y>0</y>
                         <z>0</z>
-                        <width>909</width>
-                        <height>515</height>
+                        <width>1200</width>
+                        <height>1800</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -47,24 +47,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-            </instances>
-            <effects />
-        </layer>
-        <layer name="mundo" sid="9731921646490414">
-            <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
-            <transparent>1</transparent>
-            <parallax>
-                <x>1</x>
-                <y>1</y>
-            </parallax>
-            <zoom-rate>1</zoom-rate>
-            <opacity>1</opacity>
-            <force-own-texture>0</force-own-texture>
-            <blend-mode>0</blend-mode>
-            <effect-fallback>0</effect-fallback>
-            <instances>
-                <instance type="Sprite" uid="1">
+                <instance type="Tierra" uid="1">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -72,9 +55,14 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                         <behavior-instance type="Rotate">
                             <properties>
-                                <speed>5</speed>
+                                <speed>1</speed>
                                 <acceleration>0</acceleration>
                             </properties>
                         </behavior-instance>
@@ -82,11 +70,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>427</x>
-                        <y>906</y>
+                        <x>598</x>
+                        <y>2130</y>
                         <z>0</z>
-                        <width>1200</width>
-                        <height>1200</height>
+                        <width>1354.143676758</width>
+                        <height>1354.143676758</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
