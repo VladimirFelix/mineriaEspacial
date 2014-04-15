@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Evento Menu</name>
+    <events>
+        <event-block sid="8243918028918486">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8766456032229376" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="2080407332553974" type="Shoot">
+                    <param id="0" name="Audio file">MenuSong</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8283472643564071">
+            <conditions>
+                <condition id="0" name="On clicked" sid="9528733581899458" type="start" />
+                <condition id="-14" name="Compare variable" sid="3686263910660939" type="System">
+                    <param id="0" name="Variable">Mision</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="4853478454481906" type="Shoot" />
+                <action id="-2" name="Go to layout" sid="1295521981879318" type="System">
+                    <param id="0" name="Layout">Layout 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6807974824573779">
+            <conditions>
+                <condition id="0" name="On clicked" sid="2342470203218753" type="start" />
+                <condition id="-14" name="Compare variable" sid="1092697403813913" type="System">
+                    <param id="0" name="Variable">Mision</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="5906852868313871" type="Shoot" />
+                <action id="-2" name="Go to layout" sid="2827570420070265" type="System">
+                    <param id="0" name="Layout">Layout 2</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="9543960882824957" type="System">
+                    <param id="0" name="Layout">Nivel2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6550879943902954">
+            <conditions>
+                <condition id="0" name="On clicked" sid="7401656308347" type="start" />
+                <condition id="-14" name="Compare variable" sid="2989208754826825" type="System">
+                    <param id="0" name="Variable">Mision</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="8917977511052189" type="Shoot" />
+                <action id="-2" name="Go to layout" sid="9289866602574478" type="System">
+                    <param id="0" name="Layout">Layout 3</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="1144496986420667" type="System">
+                    <param id="0" name="Layout">Nivel3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7318447313426708">
+            <conditions>
+                <condition id="0" name="On clicked" sid="6172520648604015" type="start" />
+                <condition id="-14" name="Compare variable" sid="4727396633509531" type="System">
+                    <param id="0" name="Variable">Mision</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="2617168140208354" type="Shoot" />
+                <action id="-2" name="Go to layout" sid="5157318534361832" type="System">
+                    <param id="0" name="Layout">Layout 4</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="4173098354297839" type="System">
+                    <param id="0" name="Layout">Nivel4</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7992028340907568">
+            <conditions>
+                <condition id="0" name="On clicked" sid="7840001020611794" type="start" />
+                <condition id="-14" name="Compare variable" sid="536229584178189" type="System">
+                    <param id="0" name="Variable">Mision</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="5156302382694491" type="Shoot" />
+            </actions>
+        </event-block>
+        <event-block sid="2416877157472475">
+            <conditions>
+                <condition id="0" name="On clicked" sid="5602118670781121" type="GamePlay" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="8962636075218221" type="System">
+                    <param id="0" name="Layout">GamePlay</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2944000807422334">
+            <conditions>
+                <condition id="0" name="On clicked" sid="7648670080160053" type="MenuBoton" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="7134975416147772" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6966407416880383">
+            <conditions>
+                <condition id="0" name="On clicked" sid="7912523605386018" type="CONTINUE1" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="4234009676384009" type="Shoot" />
+                <action id="-2" name="Go to layout" sid="654904801303752" type="System">
+                    <param id="0" name="Layout">Nivel1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4972307618460899">
+            <conditions>
+                <condition id="0" name="On clicked" sid="6862168194320423" type="CONTINUE2" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="4518678045504099" type="Shoot" />
+                <action id="-2" name="Go to layout" sid="5545289569393308" type="System">
+                    <param id="0" name="Layout">Nivel2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3763873821424601">
+            <conditions>
+                <condition id="0" name="On clicked" sid="7322900162199548" type="CONTINUE3" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="8392583061523091" type="Shoot" />
+                <action id="-2" name="Go to layout" sid="3018422506532143" type="System">
+                    <param id="0" name="Layout">Nivel3</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

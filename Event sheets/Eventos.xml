@@ -1,0 +1,951 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Eventos</name>
+    <events>
+        <variable constant="0" name="Finalboss" sid="5870645592127239" static="0" type="number">50</variable>
+        <variable constant="0" name="EsteroidesComunes" sid="904317976790637" static="0" type="number">0</variable>
+        <variable constant="0" name="SUCCESS" sid="5446485096795531" static="0" type="number">0</variable>
+        <variable constant="0" name="Life" sid="6526284178495939" static="0" type="number">10</variable>
+        <variable constant="0" name="Mision" sid="5421332503002689" static="0" type="number">0</variable>
+        <variable constant="0" name="Score" sid="2402156055782849" static="0" type="number">0</variable>
+        <variable constant="0" name="Gas" sid="7706517351228148" static="0" type="number">0</variable>
+        <variable constant="0" name="Metals" sid="2834879924433605" static="0" type="number">0</variable>
+        <variable constant="0" name="Minerals" sid="7524135849273016" static="0" type="number">0</variable>
+        <event-group collapsed="1" description="" sid="5283354056059914" title="System">
+            <sub-events>
+                <event-block sid="2100174027291863">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="9102891154855" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="8803111453033977" type="JetPack">
+                            <param id="0" name="Object">Astronaut</param>
+                            <param id="1" name="Image point (optional)">1</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="2846496362002976" type="LaserGun">
+                            <param id="0" name="Object">Astronaut</param>
+                            <param id="1" name="Image point (optional)">2</param>
+                        </action>
+                        <action id="0" name="Set text" sid="6254427166538406" type="TextoMetal">
+                            <param id="0" name="Text">Metals</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3632028741877604" type="Textogas">
+                            <param id="0" name="Text">Gas</param>
+                        </action>
+                        <action id="0" name="Set text" sid="9351646122269276" type="TextoMineral">
+                            <param id="0" name="Text">Minerals</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8558057284802208" type="TextScorePoints">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7109409856522303">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="6421897196056939" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="8481354864824015" type="Shoot">
+                            <param id="0" name="Audio file">CancionFondo</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="1624337680294798" title="Astronaut">
+            <sub-events>
+                <event-block sid="4060760614350613">
+                    <conditions>
+                        <condition id="0" name="On click" sid="8657192547649297" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="6413267687139615" type="Shoot">
+                            <param id="0" name="Audio file">laserDisparo</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="3766347388825707" type="LaserGun">
+                            <param id="0" name="Object">BalaLaser</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4057230880208706">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="1697481953379494" type="Keyboard">
+                            <param id="0" name="Key">37 (Left arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="4498389465585528" type="Astronaut">
+                            <param id="0" name="Animation">&quot;TurnLeft&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="9739420531221439" type="JetPack">
+                            <param id="0" name="Animation">&quot;TurnLeft&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="315153156184862" type="LaserGun">
+                            <param id="0" name="Animation">&quot;TurnLeft&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4164525238655009">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="5308608806549511" type="Keyboard">
+                            <param id="0" name="Key">39 (Right arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="272877839194521" type="Astronaut">
+                            <param id="0" name="Animation">&quot;TurnRight&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="8711339235797725" type="JetPack">
+                            <param id="0" name="Animation">&quot;TurnRight&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="1467508738643225" type="LaserGun">
+                            <param id="0" name="Animation">&quot;TurnRigth&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3669665992889352">
+                    <conditions>
+                        <condition id="7" name="On any key released" sid="293169721293693" type="Keyboard" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="6037318165741617" type="Astronaut">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="1567542053871798" type="JetPack">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="6346245368896641" type="LaserGun">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1152758151636132">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1273977062200285" type="System">
+                            <param id="0" name="Variable">Life</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6666165219062656" type="Astronaut" />
+                        <action id="-9" name="Destroy" sid="6572571426032685" type="LaserGun" />
+                        <action id="-9" name="Destroy" sid="2945186875899448" type="Sprite8" />
+                        <action id="-10" name="Add to" sid="2463225448946418" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-21" name="Reset global variables" sid="8170321337991895" type="System" />
+                        <action id="-16" name="Wait" sid="6488125128927369" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="8480184279949923" type="System">
+                            <param id="0" name="Layout">Menu</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="87333011162082" title="Colision &amp; Fire">
+            <sub-events>
+                <event-block sid="6100335329302938">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3177794170856868" type="MeteoroMetal1">
+                            <param id="0" name="Object">Tierra</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="9762175702957605" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6069645988894527" type="MeteoroMetal1" />
+                        <action id="-15" name="Set visible" sid="3728981050610085" type="GameOver">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="33" name="Stop all" sid="6312292387626513" type="Shoot" />
+                        <action id="-16" name="Wait" sid="1982259803732994" type="System">
+                            <param id="0" name="Seconds">10</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="9578408814013534" type="System">
+                            <param id="0" name="Layout">Menu</param>
+                        </action>
+                        <action id="-21" name="Reset global variables" sid="1136062455364804" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="9680117694622568">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2176935411730558" type="MeteoroMetal1">
+                            <param id="0" name="Object">BalaLaser</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="1060044610987537" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5671455137509521" type="MeteoroMetal1" />
+                        <action id="-9" name="Destroy" sid="6791687864883575" type="BalaLaser" />
+                    </actions>
+                </event-block>
+                <event-block sid="6304817112795289">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="612773875935691" type="MeteoroMine1">
+                            <param id="0" name="Object">Tierra</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="3114141600486558" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="2342679810960201" type="MeteoroMine1" />
+                        <action id="-15" name="Set visible" sid="2236817822690983" type="GameOver">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="33" name="Stop all" sid="9492445173367409" type="Shoot" />
+                        <action id="-16" name="Wait" sid="9009870845537083" type="System">
+                            <param id="0" name="Seconds">10</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="5173605848422153" type="System">
+                            <param id="0" name="Layout">Menu</param>
+                        </action>
+                        <action id="-21" name="Reset global variables" sid="2790132721774169" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="8330593691044785">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5251115878714646" type="MeteoroMine1">
+                            <param id="0" name="Object">BalaLaser</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="5678123436188402" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6395115415064117" type="MeteoroMine1" />
+                        <action id="-9" name="Destroy" sid="3972953091783711" type="BalaLaser" />
+                    </actions>
+                </event-block>
+                <event-block sid="7721214854749156">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4350945888348065" type="MeteoroGas1">
+                            <param id="0" name="Object">Tierra</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="9705773085309096" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="4288249955623335" type="MeteoroGas1" />
+                        <action id="-15" name="Set visible" sid="7994304942825262" type="GameOver">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="33" name="Stop all" sid="8053789973063071" type="Shoot" />
+                        <action id="-16" name="Wait" sid="9156716707499271" type="System">
+                            <param id="0" name="Seconds">10</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="6269982583808136" type="System">
+                            <param id="0" name="Layout">Menu</param>
+                        </action>
+                        <action id="-21" name="Reset global variables" sid="4833733361761823" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="1646298851312123">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="8640861027893172" type="MeteoroGas1">
+                            <param id="0" name="Object">BalaLaser</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="1530998380999894" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5688219730899458" type="MeteoroGas1" />
+                        <action id="-9" name="Destroy" sid="731002097640472" type="BalaLaser" />
+                    </actions>
+                </event-block>
+                <event-block sid="4567969920911572">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4504379122408687" type="MeteoroMine1">
+                            <param id="0" name="Object">Astronaut</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="2499811722466155" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="9640856632068137" type="MeteoroMine1" />
+                        <action id="-11" name="Subtract from" sid="8275834123780312" type="System">
+                            <param id="0" name="Variable">Life</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="5010395949595482" type="HPBarra">
+                            <param id="0" name="Width">self.Width-28</param>
+                            <param id="1" name="Height">self.Height</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6498466377080294">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5229593077009976" type="MeteoroGas1">
+                            <param id="0" name="Object">Astronaut</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="1373533047570263" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="9862366747777152" type="MeteoroGas1" />
+                        <action id="-11" name="Subtract from" sid="2078323923193657" type="System">
+                            <param id="0" name="Variable">Life</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="9772881157252725" type="HPBarra">
+                            <param id="0" name="Width">self.Width-28</param>
+                            <param id="1" name="Height">self.Height</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3814950825862088">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1870756655693264" type="MeteoroMetal1">
+                            <param id="0" name="Object">Astronaut</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="3922554588011334" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6742586009789632" type="MeteoroMetal1" />
+                        <action id="-11" name="Subtract from" sid="7566629512716244" type="System">
+                            <param id="0" name="Variable">Life</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="8396433289207721" type="HPBarra">
+                            <param id="0" name="Width">self.Width-28</param>
+                            <param id="1" name="Height">self.Height</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1079646559103505">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3880633463698996" type="MeteoroComun">
+                            <param id="0" name="Object">Astronaut</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="9571076163819391" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6050929979542887" type="MeteoroComun" />
+                        <action id="-11" name="Subtract from" sid="143615865122595" type="System">
+                            <param id="0" name="Variable">Life</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="5667023354989422" type="HPBarra">
+                            <param id="0" name="Width">self.Width-28</param>
+                            <param id="1" name="Height">self.Height</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5073240810715213">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="6825061918152603" type="MeteoroGas1" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="998711842830609" type="System">
+                            <param id="0" name="Variable">Gas</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="6880205872136025" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1170416497103107">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="2989152935691441" type="MeteoroMetal1" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="4996948592724932" type="System">
+                            <param id="0" name="Variable">Metals</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="9775399021627847" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3688559727813721">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="1349793713250031" type="MeteoroMine1" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="5623272730120094" type="System">
+                            <param id="0" name="Variable">Minerals</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="1651521773497999" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="429517996898902">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="1178088324692458" type="MeteoroComun" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="9551027997982891" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="260201454114948" type="System">
+                            <param id="0" name="Variable">EsteroidesComunes</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9715716465899368">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2334461158048252" type="MeteoroComun">
+                            <param id="0" name="Object">Tierra</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6361379159920132" type="MeteoroComun" />
+                        <action id="0" name="Play" sid="5912874276666139" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="6581355401501332" type="GameOver">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8042767613262983">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1820383158299793" type="MeteoroComun">
+                            <param id="0" name="Object">BalaLaser</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="8039341999732161" type="MeteoroComun" />
+                    </actions>
+                </event-block>
+                <event-block sid="2721972105631986">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1492989726478495" type="Boss">
+                            <param id="0" name="Object">BalaLaser</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="1870263644042718" type="System">
+                            <param id="0" name="Variable">EsteroidesComunes</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="7949251724083292" type="BossHeal">
+                            <param id="0" name="Width">self.Width-16</param>
+                            <param id="1" name="Height">self.Height</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="9734746294772054" type="BalaLaser" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="80288802582925" title="Asteroid">
+            <sub-events>
+                <event-block sid="4511069770545999">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="1106316492579627" type="System">
+                            <param id="0" name="Interval (seconds)">12</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="8489048191689134" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="2285688162959721" type="RespawnGas">
+                            <param id="0" name="X">RespawnGas.X</param>
+                            <param id="1" name="Y">RespawnGas.Y</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="4442946308533319" type="System">
+                            <param id="0" name="Object to create">MeteoroGas1</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">RespawnGas.X + loopindex * 50</param>
+                            <param id="3" name="Y">RespawnGas.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2188202432617085">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="1204043204077024" type="System">
+                            <param id="0" name="Interval (seconds)">10</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="2254294782272732" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="463370939922467" type="RespawnMetal">
+                            <param id="0" name="X">RespawnMetal.X</param>
+                            <param id="1" name="Y">RespawnMetal.Y</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="3848947905746985" type="System">
+                            <param id="0" name="Object to create">MeteoroMetal1</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">RespawnGas.X + loopindex * 30</param>
+                            <param id="3" name="Y">RespawnGas.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5723329921325027">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="3026536828330408" type="System">
+                            <param id="0" name="Interval (seconds)">7</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="315082703499332" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="4285568434311994" type="RespawnMine">
+                            <param id="0" name="X">RespawnMine.X</param>
+                            <param id="1" name="Y">REspawnMine.Y</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="7097127681143708" type="System">
+                            <param id="0" name="Object to create">MeteoroMine1</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">RespawnGas.X + loopindex * 40</param>
+                            <param id="3" name="Y">RespawnGas.Y</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="5208263070457945">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="400753962605165">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="9200414839908388" type="System">
+                            <param id="0" name="Interval (seconds)">3</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="6347825229219925" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="7729706706778887" type="System">
+                            <param id="0" name="Variable">Life</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="655220155090291" type="System">
+                            <param id="0" name="Variable">Mision</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="5339652047339475" type="EnemySpawner1">
+                            <param id="0" name="Object">MeteoroComun</param>
+                            <param id="1" name="Layer">EnemySpawner1.X</param>
+                            <param id="2" name="Image point">EnemySpawner1.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6646332237522343">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="3028184220927299" type="System">
+                            <param id="0" name="Interval (seconds)">4</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="90505588574312" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="1217475681647601" type="System">
+                            <param id="0" name="Variable">Life</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="6906144513553265" type="EnemySpawner2">
+                            <param id="0" name="Object">MeteoroComun</param>
+                            <param id="1" name="Layer">EnemySpawner2.X</param>
+                            <param id="2" name="Image point">EnemySpawner2.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3968443135401808">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="3584773140402175" type="System">
+                            <param id="0" name="Interval (seconds)">5</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="5089749653661064" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="5580506558495803" type="EnemySpawner4">
+                            <param id="0" name="Object">MeteoroComun</param>
+                            <param id="1" name="Layer">EnemySpawner4.X</param>
+                            <param id="2" name="Image point">EnemySpawner4.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5583969131566998">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="8600868498925338" type="System">
+                            <param id="0" name="Interval (seconds)">4.5</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9572911311873406" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="2144206252270524" type="EnemySpawner5">
+                            <param id="0" name="Object">MeteoroComun</param>
+                            <param id="1" name="Layer">EnemySpawner5.X</param>
+                            <param id="2" name="Image point">EnemySpawner5.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9093069658268742">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="2946750684281036" type="System">
+                            <param id="0" name="Interval (seconds)">6.5</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9005678470949336" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="5588165081995243" type="EnemySpawner3">
+                            <param id="0" name="Object">MeteoroComun</param>
+                            <param id="1" name="Layer">EnemySpawner3.X</param>
+                            <param id="2" name="Image point">EnemySpawner3.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="4989194588087464" title="Earth">
+            <sub-events>
+                <event-block sid="6246053984222978">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="8133640980442375" type="MeteoroGas1">
+                            <param id="0" name="Object">Tierra</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="5363999060264239" type="Shoot">
+                            <param id="0" name="Audio file">laserChoca</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="8356415999566782" type="MeteoroGas1" />
+                        <action id="-15" name="Set visible" sid="8948960974408018" type="GameOver">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="104023375502556" type="System">
+                            <param id="0" name="Seconds">10</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="1526281370173867" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="9519490010074185" title="Mision">
+            <sub-events>
+                <event-block sid="5347403617217315">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1427817330395079" type="System">
+                            <param id="0" name="Variable">Minerals</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="6376130743436463" type="System">
+                            <param id="0" name="Variable">Metals</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="1470401809494057" type="System">
+                            <param id="0" name="Variable">Gas</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="2677786537696297" type="System">
+                            <param id="0" name="Variable">Mision</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="8052229697456365" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="7906903088443685" type="System">
+                            <param id="0" name="Variable">Mision</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="6308743753984848" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="3733388166059482" type="System">
+                            <param id="0" name="Layout">Menu</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6527555095069569" type="System">
+                            <param id="0" name="Variable">Metals</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8065299974870234" type="System">
+                            <param id="0" name="Variable">Minerals</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1021098804036385" type="System">
+                            <param id="0" name="Variable">Gas</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7216319151497589" type="System">
+                            <param id="0" name="Variable">EsteroidesComunes</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="6752867441912521" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2662818204509672">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7391578149957769" type="System">
+                            <param id="0" name="Variable">EsteroidesComunes</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">20</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="6848659183345047" type="System">
+                            <param id="0" name="Variable">Mision</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="3039121333015623" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="4485559151335559" type="System">
+                            <param id="0" name="Variable">Mision</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="4600800101698584" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="1933684942470637" type="System">
+                            <param id="0" name="Layout">Menu</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8822867220494906" type="System">
+                            <param id="0" name="Variable">Metals</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9093674545887154" type="System">
+                            <param id="0" name="Variable">Minerals</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2731974692367617" type="System">
+                            <param id="0" name="Variable">Gas</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="1475261140625475" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9894706034757518">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2527195811541416" type="System">
+                            <param id="0" name="Variable">Minerals</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="7320101498718424" type="System">
+                            <param id="0" name="Variable">Metals</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="5825696531867825" type="System">
+                            <param id="0" name="Variable">Gas</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="2729301044054499" type="System">
+                            <param id="0" name="Variable">Mision</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="7762962567728045" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="6734852800307233" type="System">
+                            <param id="0" name="Variable">Mision</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="8803874174616499" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="9993461593470023" type="System">
+                            <param id="0" name="Layout">Menu</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1362973069706634" type="System">
+                            <param id="0" name="Variable">Metals</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1436212027431311" type="System">
+                            <param id="0" name="Variable">Minerals</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5526761793182247" type="System">
+                            <param id="0" name="Variable">Gas</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="2812445096131822" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2200069849320285">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6268426935530345" type="System">
+                            <param id="0" name="Variable">Minerals</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="5864904090398583" type="System">
+                            <param id="0" name="Variable">Metals</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="2069194013814654" type="System">
+                            <param id="0" name="Variable">Gas</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="3590437423417147" type="System">
+                            <param id="0" name="Variable">Mision</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="7841768085415043" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="1304251424666964" type="System">
+                            <param id="0" name="Variable">Mision</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="3069682969078812" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="4115821638472549" type="System">
+                            <param id="0" name="Layout">Menu</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4867116677737774" type="System">
+                            <param id="0" name="Variable">Metals</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9841203645674683" type="System">
+                            <param id="0" name="Variable">Minerals</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2353764899598949" type="System">
+                            <param id="0" name="Variable">Gas</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="2497561580561366" type="System">
+                            <param id="0" name="Variable">SUCCESS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
